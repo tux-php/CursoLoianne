@@ -107,7 +107,9 @@ public class ContaCorrente {
 		System.out.println("Saldo + Limite: " + consultarSaldoLimite());
 		System.out.println(consultarChequeEspecial());
 		System.out.println("Conta: " + numero);
-		System.out.println("Conta: " + numero + "fim");
+		System.out.println("Conta: " + numero + "fim1");
+		System.out.println("Conta: " + numero + "fim2");
+		System.out.println("Conta: " + numero + "fim3");
 	}
 
 }
