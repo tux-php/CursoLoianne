@@ -100,12 +100,14 @@ public class ContaCorrente {
 	}
 
 	void mostrarExtrato() {
-		System.out.println("Conta: " + numero);
+		System.out.println("Conta: " + numero + "fernando");
 		System.out.println("Tipo de Conta: " + verficarStatusConta());
 		System.out.println("Saldo: " + consultarSaldo());
 		System.out.println("Cheque Especial: " + consultarLimite());
 		System.out.println("Saldo + Limite: " + consultarSaldoLimite());
 		System.out.println(consultarChequeEspecial());
+		System.out.println("Conta: " + numero);
+		System.out.println("Conta: " + numero + "fim");
 	}
 
 }
