@@ -1,0 +1,6 @@
+1653349316795	Rename local variable 'descontoIR'
+1653365727009	Extract method 'TotalPagamento'
+1653409946917	Extract method 'TotalCompra'
+1653494996593	Rename method 'TotalCompra'
+1653503325400	Rename method 'SelecaoFruta'
+1653764889540	Rename local variable 'num'

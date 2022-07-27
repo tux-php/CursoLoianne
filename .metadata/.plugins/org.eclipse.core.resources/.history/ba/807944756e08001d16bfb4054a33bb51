@@ -1,0 +1,20 @@
+package com.fernando.cursojava.aula25;
+
+public class Carro {
+	String marca;
+	String modelo;
+	int numPassegeiros;
+	double capCombustivel;
+	double consumoCombustivel;
+
+	double obterAutonomia() {
+		System.out.println("O método obterAutonomia() foi chamado.");
+
+		return capCombustivel * consumoCombustivel;
+	}
+	
+	double calcularCombustivel(doubl km) {
+		return km/consumoCombustivel;
+	}
+
+}

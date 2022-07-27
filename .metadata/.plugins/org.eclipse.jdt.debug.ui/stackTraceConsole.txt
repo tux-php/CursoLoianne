@@ -1,0 +1,15 @@
+Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Entre com um número");
+		int num = scan.nextInt();
+		
+		System.out.println("Entre com um limite");
+		int max = scan.nextInt();
+		
+		for(int i = num; i <= max; i++) {
+			// Mostrar 1º valor divisível por 7 e sair do loop.
+			if(i % 7 == 0) {
+				System.out.println("O 1º número divísel por 7 é " + i);
+				break;
+			}
+		}

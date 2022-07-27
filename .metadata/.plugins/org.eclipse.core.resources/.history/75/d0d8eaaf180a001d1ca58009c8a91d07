@@ -1,0 +1,88 @@
+package com.fernando.cursojava.aula27;
+
+public class ContaCorrente {
+	int numero;
+	double saldo;
+	boolean especial;
+	double limite;
+	boolean usoChequeEspecial;
+	String tpConta;
+	String msg;
+	String chequeEspecial = "Cheque Especial";
+
+	double sacar(double valor) {
+		return saldo -= valor;
+
+	}
+
+	double sacarChequeEspecial(double valor) {
+		return limite -= valor;
+	}
+
+	void depositar(double valor) {
+		saldo += valor;
+	}
+	
+	void depositarLimite(double valor) {		
+		limite += valor;
+	}
+
+	double consultarSaldo() {
+		return saldo;
+	}
+
+	double consultarLimite() {
+		return limite;
+	}
+
+	double consultarSaldoLimite() {
+		return pegarTotal();
+	}
+
+	double pegarTotal() {
+		return saldo + limite;
+	}
+
+	boolean usarChequeEspecial(boolean valor) {
+		return usoChequeEspecial = valor;
+	}
+	
+	boolean naoUsarChequeEspecial() {
+		return usoChequeEspecial = false;
+	}
+	
+
+	String consultarChequeEspecial() {
+		msg = usoChequeEspecial ? " utilizado" : " não utilizado";
+		return chequeEspecial + msg;
+		
+	}
+
+	boolean Especial() {
+		return especial = true;
+
+	}
+
+	boolean Simples() {
+		return especial = false;
+
+	}
+
+	String verficarStatusConta() {
+		return tpConta = especial ? "Conta Especial" : "Conta Simples";
+	}
+
+	boolean mudarParaContaEspecial() {
+		return Especial();
+	}
+
+	void mostrarExtrato() {		
+		System.out.println("Conta: " + numero);
+		System.out.println("Tipo de Conta: " + verficarStatusConta());
+		System.out.println("Saldo: " + consultarSaldo());
+		System.out.println("Limite: " + consultarLimite());
+		System.out.println("Saldo + Limite: " + consultarSaldoLimite());		
+		System.out.println(consultarChequeEspecial());
+	}
+
+}

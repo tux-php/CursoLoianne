@@ -1,0 +1,5 @@
+1657077118086	Rename local variable 'compromissos'
+1657159218593	Rename local variable 'agenda'
+1657159253831	Rename local variable 'compromisso'
+1657324667278	Extract method 'escolherPosicao'
+1657337354309	Extract method 'getVencedor'

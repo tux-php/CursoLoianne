@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;vB&apos; in &apos;com.fernando.cursojava.aula19.Exercicio28.main(...)&apos; to &apos;valorB&apos;&#x0A;- Original project: &apos;Curso-Java-Basico&apos;&#x0A;- Original element: &apos;com.fernando.cursojava.aula19.Exercicio28.main(String[]).vB&apos;&#x0A;- Renamed element: &apos;vB&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;vB&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;com.fernando.cursojava.aula19{Exercicio28.java[Exercicio28~main~\[QString;@vB!699!713!703!704!I!0!false" name="valorB" references="true" stamp="1656790441896" version="1.0"/>
+</session>

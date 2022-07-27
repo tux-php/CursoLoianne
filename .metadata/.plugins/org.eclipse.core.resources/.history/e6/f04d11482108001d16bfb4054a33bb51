@@ -1,0 +1,10 @@
+package com.fernando.cursojava.aula25;
+
+public class Carro {
+	String marca;
+	String modelo;
+	int numPassegeiros;
+	double capCombustivel;
+	double consumoCombustivel;
+
+}

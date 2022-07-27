@@ -1,0 +1,22 @@
+package com.fernando.cursojava.aula27;
+
+public class TesteLampada {
+
+	public static void main(String[] args) {
+		Lampada fluorescente = new Lampada();
+		
+		fluorescente.nome = "Fluorescente";
+		fluorescente.cor = "Branca";
+		fluorescente.potencia = 220;
+		fluorescente.wifi = true;
+		
+		System.out.println("Nome: " + fluorescente.nome);
+		System.out.println("Cor: " + fluorescente.cor);
+		System.out.println("Potência: " + fluorescente.potencia);
+		
+		System.out.println("Lâmpada status: " + fluorescente.ligar());
+		
+
+	}
+
+}

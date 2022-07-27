@@ -1,0 +1,17 @@
+package com.fernando.cursojava.aula27;
+
+public class Lampada {
+	String nome;
+	boolean wifi;
+	String cor;	
+	int potencia;
+	
+	void ligar() {
+		System.out.println("Lâmpada ligada.");
+	}
+	
+	void desligar() {
+		System.out.println("Lâmpada desligada.");
+	}
+
+}

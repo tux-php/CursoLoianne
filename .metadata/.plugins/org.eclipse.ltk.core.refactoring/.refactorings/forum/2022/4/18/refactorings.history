@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;data.sql&apos; to &apos;forum/src/main/resources&apos;&#x0A;- Original project: &apos;forum&apos;&#x0A;- Destination element: &apos;forum/src/main/resources&apos;&#x0A;- Original element: &apos;data.sql&apos;&#x0A;- Update references to refactored element" description="Move file" destination="/src\/main\/resources=/maven.pomderived=/true=/" element1="src/main/resources/templates/data.sql" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1651027903522" units="0" version="1.0"/>
+</session>

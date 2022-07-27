@@ -1,0 +1,15 @@
+package com.fernando.cursojava.aula27;
+
+public class TesteLampada {
+
+	public static void main(String[] args) {
+		Lampada fluorescente = new Lampada();
+
+		fluorescente.ligar();
+		fluorescente.mostrarEstado();
+		
+		fluorescente.desligar();
+		fluorescente.mostrarEstado();
+	}
+
+}

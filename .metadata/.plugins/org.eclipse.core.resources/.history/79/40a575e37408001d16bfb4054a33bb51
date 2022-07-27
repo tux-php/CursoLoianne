@@ -1,0 +1,26 @@
+package com.fernando.cursojava.aula27;
+
+public class TesteLampada {
+
+	public static void main(String[] args) {
+		Lampada fluorescente = new Lampada();
+
+		fluorescente.ligar();
+
+		if (fluorescente.ligada) {
+			System.out.println("Lâmpada está ligada.");
+		} else {
+			System.out.println("Lâmpada está desligada.");
+		}
+
+		fluorescente.desligar();
+
+		if (fluorescente.ligada) {
+			System.out.println("Lâmpada está ligada.");
+		} else {
+			System.out.println("Lâmpada está desligada.");
+		}
+
+	}
+
+}

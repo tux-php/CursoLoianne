@@ -1,0 +1,3 @@
+1658628113410	Rename local variable 'sacando'
+1658633210244	Extract local variable 'depositarNoLimite'
+1658633256984	Extract local variable 'validarLimites'
