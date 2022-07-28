@@ -2,7 +2,7 @@ package com.fernando.cursoOO.aula27;
 
 import java.util.Scanner;
 
-public class TestarAlunoCurso {
+public class TesteAlunoCurso {
 
 	public static void main(String[] args) {
 		String nome;
