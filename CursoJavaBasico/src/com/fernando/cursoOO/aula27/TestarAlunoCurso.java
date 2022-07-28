@@ -31,7 +31,7 @@ public class TestarAlunoCurso {
 			aluno.salvarNota(cc002, 10, 9);
 			aluno.salvarNota(cc003, 6, 10);
 			
-			aluno.emitirHistorico(computacao);
+			aluno.emitirHistorico();
 		}
 		
 
