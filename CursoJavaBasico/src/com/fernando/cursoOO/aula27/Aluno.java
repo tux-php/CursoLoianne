@@ -10,7 +10,7 @@ public class Aluno {
 	String codCurso;
 	String nomeCurso;
 	ArrayList<String> codDisciplinas = new ArrayList<>();
-	ArrayList<String> nomeDisciplina = new ArrayList<>();
+	ArrayList<String> nomeDisciplinas = new ArrayList<>();
 	Map<String, Double> disciplinaNotas = new HashMap<>();
 	String msg = "";
 	double media;
@@ -40,22 +40,31 @@ public class Aluno {
 
 	ArrayList<String> matricularDisciplina(Disciplina disciplina) {
 		codDisciplinas.add(disciplina.codDisciplina);
-		nomeDisciplina.add(disciplina.getNomeDisciplina());
+		nomeDisciplinas.add(disciplina.getNomeDisciplina());
 		return codDisciplinas;
 	}
 
 	ArrayList<String> listarDisciplinaMatriculadas() {
 		ArrayList<String> matriculasAluno = new ArrayList<>();
-		for (String disciplinaNome : nomeDisciplina) {
+		for (String disciplinaNome : nomeDisciplinas) {
 			matriculasAluno.add(disciplinaNome);
 		}
 		return matriculasAluno;
 
 	}
+	
+	ArrayList<String> listarCodDisciplinas() {
+		ArrayList<String> codigoDisciplinas = new ArrayList<>();
+		for (String codDisciplina : codDisciplinas) {
+			codigoDisciplinas.add(codDisciplina);
+		}
+		return codDisciplinas;
 
-	void salvarNota(Disciplina disciplina, double nota1, double nota2) {
+	}
+
+	void salvarNota(String disciplina, double nota1, double nota2) {
 		media = (nota1 + nota2) / 2;
-		disciplinaNotas.put(disciplina.getNomeDisciplina(), media);
+		disciplinaNotas.put(disciplina, media);
 	}
 
 	void listarNota() {
@@ -69,7 +78,7 @@ public class Aluno {
 
 	}
 
-	void emitirHistorico(Curso computacao) {
+	void emitirHistorico() {
 		System.out.println("Aluno: " + getNome());
 		System.out.println("Matrícula: " + getMatricula());
 		System.out.println("Curso: " + getNomeCurso());
