@@ -52,7 +52,7 @@ public class Aluno {
 		return matriculasAluno;
 
 	}
-	
+
 	ArrayList<String> listarCodDisciplinas() {
 		ArrayList<String> codigoDisciplinas = new ArrayList<>();
 		for (String codDisciplina : codDisciplinas) {
