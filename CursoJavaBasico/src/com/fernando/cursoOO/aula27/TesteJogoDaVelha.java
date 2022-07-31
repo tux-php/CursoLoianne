@@ -7,27 +7,48 @@ public class TesteJogoDaVelha {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		boolean sair = false;
+		JogoDaVelha tabuleiro = new JogoDaVelha();
 		String resp;
-		String[][] tabuleiro = new String[3][3];
 		int jogadaDaVez = 0;
-		while(!sair) {
+		int posicao;
+		String jogadorNome;
+		boolean flagJogadores = false;
+
+		while (!sair) {
 			System.out.println("Iniciar a partida ?(S/N)");
 			resp = scan.next();
-			if(resp.equalsIgnoreCase("s")) {
-				for(int i = 0; i < tabuleiro.length; i++) {
-					for(int j = 0; j < tabuleiro[i].length; j++) {
-						System.out.print("|" + tabuleiro[i][j] + "|");
+			if (resp.equalsIgnoreCase("s")) {
+				while (!flagJogadores) {
+					tabuleiro.mostrarTabuleiro();
+					if (jogadaDaVez % 2 == 0) {
+						jogadorNome = "Jogador1";
+						System.out.println(jogadorNome + " faça sua jogada.");
+						posicao = scan.nextInt();
+						if (!tabuleiro.validarMarcacaoTabuleiro(posicao, "O")) {
+							jogadaDaVez--;
+						}
+
+					} else {
+						jogadorNome = "Jogador2";
+						System.out.println(jogadorNome + " faça sua jogada.");
+						posicao = scan.nextInt();
+						if (!tabuleiro.validarMarcacaoTabuleiro(posicao, "X")) {
+							jogadaDaVez--;
+						}
 					}
-					System.out.println();
+					if (tabuleiro.lancarVencedor()) {
+						System.out.println(jogadorNome + " é o campeão. Parabéns!!");
+						flagJogadores = true;
+						sair = true;
+					} else {
+						jogadaDaVez++;
+					}
+
 				}
-				System.out.println();
-				//continuar
-				if(jogadaDaVez % 2 == 0) {
-					System.out.println("Jogador1 faça sua jogada.");					
-				}else {
-					System.out.println("Jogador2 faça sua jogada.");
-				}
-				jogadaDaVez++;
+
+			} else {
+				System.out.println("Good By.:)");
+				sair = true;
 			}
 		}
 
