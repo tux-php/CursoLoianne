@@ -2,19 +2,27 @@ package com.fernando.cursoOO.aula27;
 
 public class JogoDaVelha {
 	String[][] tabuleiro = new String[3][3];
-	
-	
+	int seqTabuleiro = 1;
 	void mostrarTabuleiro() {
-		for(int i = 0; i < tabuleiro.length; i++) {
-			for(int j = 0; j < tabuleiro[i].length; j++) {
+		for (int i = 0; i < tabuleiro.length; i++) {
+			for (int j = 0; j < tabuleiro[i].length; j++) {
+				if(tabuleiro[i][j] == null) {
+					tabuleiro[i][j] = Integer.toString(seqTabuleiro);
+				}
 				System.out.print("|" + tabuleiro[i][j] + "|");
+				seqTabuleiro++;
 			}
 			System.out.println();
 		}
+
 		System.out.println();
-		
+
 	}
 	
+	void limparJogo() {
+		//continuar
+	}
+
 	void marcarPosicao(int posicao, String marcacao) {
 		switch (posicao) {
 		case 1:
@@ -45,12 +53,12 @@ public class JogoDaVelha {
 			tabuleiro[2][2] = marcacao;
 			break;
 
-		default:System.out.println("Marcação inválida");			
+		default:
+			System.out.println("Marcação inválida");
 			break;
 		}
 	}
-	
-	
+
 	String marcacaoTabuleiro(int posicaoMarcada) {
 		String posicao = "";
 		switch (posicaoMarcada) {
@@ -84,70 +92,45 @@ public class JogoDaVelha {
 		}
 		return posicao;
 	}
-	
-	
-	
-	boolean lancarVencedor() {
+
+	boolean lancarVencedor(String marcacao) {
 		boolean campeao = false;
-		if((marcacaoTabuleiro(1) == "O") && (marcacaoTabuleiro(2) == "O") && (marcacaoTabuleiro(3) == "O")) {
+		if ((marcacaoTabuleiro(1) == marcacao) && (marcacaoTabuleiro(2) == marcacao) && (marcacaoTabuleiro(3) == marcacao)) {
 			campeao = true;
 		}
-		if((marcacaoTabuleiro(4) == "O") && (marcacaoTabuleiro(5) == "O") && (marcacaoTabuleiro(6) == "O")) {
+		if ((marcacaoTabuleiro(4) == marcacao) && (marcacaoTabuleiro(5) == marcacao) && (marcacaoTabuleiro(6) == marcacao)) {
 			campeao = true;
 		}
-		if((marcacaoTabuleiro(7) == "O") && (marcacaoTabuleiro(8) == "O") && (marcacaoTabuleiro(9) == "O")) {
+		if ((marcacaoTabuleiro(7) == marcacao) && (marcacaoTabuleiro(8) == marcacao) && (marcacaoTabuleiro(9) == marcacao)) {
 			campeao = true;
 		}
-		if((marcacaoTabuleiro(1) == "O") && (marcacaoTabuleiro(5) == "O") && (marcacaoTabuleiro(9) == "O")) {
+		if ((marcacaoTabuleiro(1) == marcacao) && (marcacaoTabuleiro(5) == marcacao) && (marcacaoTabuleiro(9) == marcacao)) {
 			campeao = true;
 		}
-		if((marcacaoTabuleiro(3) == "O") && (marcacaoTabuleiro(5) == "O") && (marcacaoTabuleiro(7) == "O")) {
+		if ((marcacaoTabuleiro(3) == marcacao) && (marcacaoTabuleiro(5) == marcacao) && (marcacaoTabuleiro(7) == marcacao)) {
 			campeao = true;
 		}
-		if((marcacaoTabuleiro(1) == "O") && (marcacaoTabuleiro(4) == "O") && (marcacaoTabuleiro(7) == "O")) {
+		if ((marcacaoTabuleiro(1) == marcacao) && (marcacaoTabuleiro(4) == marcacao) && (marcacaoTabuleiro(7) == marcacao)) {
 			campeao = true;
 		}
-		if((marcacaoTabuleiro(2) == "O") && (marcacaoTabuleiro(5) == "O") && (marcacaoTabuleiro(8) == "O")) {
+		if ((marcacaoTabuleiro(2) == marcacao) && (marcacaoTabuleiro(5) == marcacao) && (marcacaoTabuleiro(8) == marcacao)) {
 			campeao = true;
 		}
-		if((marcacaoTabuleiro(3) == "O") && (marcacaoTabuleiro(6) == "O") && (marcacaoTabuleiro(9) == "O")) {
-			campeao = true;
-		}
-		if((marcacaoTabuleiro(1) == "X") && (marcacaoTabuleiro(2) == "X") && (marcacaoTabuleiro(3) == "X")) {
-			campeao = true;
-		}
-		if((marcacaoTabuleiro(4) == "X") && (marcacaoTabuleiro(5) == "X") && (marcacaoTabuleiro(6) == "X")) {
-			campeao = true;
-		}
-		if((marcacaoTabuleiro(7) == "X") && (marcacaoTabuleiro(8) == "X") && (marcacaoTabuleiro(9) == "X")) {
-			campeao = true;
-		}
-		if((marcacaoTabuleiro(1) == "X") && (marcacaoTabuleiro(5) == "X") && (marcacaoTabuleiro(9) == "X")) {
-			campeao = true;
-		}
-		if((marcacaoTabuleiro(3) == "X") && (marcacaoTabuleiro(5) == "X") && (marcacaoTabuleiro(7) == "X")) {
-			campeao = true;
-		}
-		if((marcacaoTabuleiro(1) == "X") && (marcacaoTabuleiro(4) == "X") && (marcacaoTabuleiro(7) == "X")) {
-			campeao = true;
-		}
-		if((marcacaoTabuleiro(2) == "X") && (marcacaoTabuleiro(5) == "X") && (marcacaoTabuleiro(8) == "X")) {
-			campeao = true;
-		}
-		if((marcacaoTabuleiro(3) == "X") && (marcacaoTabuleiro(6) == "X") && (marcacaoTabuleiro(9) == "X")) {
+		if ((marcacaoTabuleiro(3) == marcacao) && (marcacaoTabuleiro(6) == marcacao) && (marcacaoTabuleiro(9) == marcacao)) {
 			campeao = true;
 		}
 		return campeao;
 	}
-	
-	 boolean validarMarcacaoTabuleiro( int posicao, String marcacao) {
-		if (marcacaoTabuleiro(posicao) == null) {
+
+	boolean validarMarcacaoTabuleiro(int posicao, String marcacao) {
+		if ((marcacaoTabuleiro(posicao) != "O") && (marcacaoTabuleiro(posicao) != "X")) {
 			marcarPosicao(posicao, marcacao);
 			return true;
 		} else {
 			System.out.println("Posição já encontra-se marcada.");
 			return false;
+
 		}
 	}
-	
+
 }
