@@ -3,10 +3,11 @@ package com.fernando.cursoOO.aula27;
 public class JogoDaVelha {
 	String[][] tabuleiro = new String[3][3];
 	int seqTabuleiro = 1;
+
 	void mostrarTabuleiro() {
 		for (int i = 0; i < tabuleiro.length; i++) {
 			for (int j = 0; j < tabuleiro[i].length; j++) {
-				if(tabuleiro[i][j] == null) {
+				if (tabuleiro[i][j] == null) {
 					tabuleiro[i][j] = Integer.toString(seqTabuleiro);
 				}
 				System.out.print("|" + tabuleiro[i][j] + "|");
@@ -18,9 +19,14 @@ public class JogoDaVelha {
 		System.out.println();
 
 	}
-	
+
 	void limparJogo() {
-		//continuar
+		for (int i = 0; i < tabuleiro.length; i++) {
+			for (int j = 0; j < tabuleiro[i].length; j++) {
+				tabuleiro[i][j] = null;
+			}
+		}
+		seqTabuleiro = 1;
 	}
 
 	void marcarPosicao(int posicao, String marcacao) {
@@ -95,28 +101,36 @@ public class JogoDaVelha {
 
 	boolean lancarVencedor(String marcacao) {
 		boolean campeao = false;
-		if ((marcacaoTabuleiro(1) == marcacao) && (marcacaoTabuleiro(2) == marcacao) && (marcacaoTabuleiro(3) == marcacao)) {
+		if ((marcacaoTabuleiro(1) == marcacao) && (marcacaoTabuleiro(2) == marcacao)
+				&& (marcacaoTabuleiro(3) == marcacao)) {
 			campeao = true;
 		}
-		if ((marcacaoTabuleiro(4) == marcacao) && (marcacaoTabuleiro(5) == marcacao) && (marcacaoTabuleiro(6) == marcacao)) {
+		if ((marcacaoTabuleiro(4) == marcacao) && (marcacaoTabuleiro(5) == marcacao)
+				&& (marcacaoTabuleiro(6) == marcacao)) {
 			campeao = true;
 		}
-		if ((marcacaoTabuleiro(7) == marcacao) && (marcacaoTabuleiro(8) == marcacao) && (marcacaoTabuleiro(9) == marcacao)) {
+		if ((marcacaoTabuleiro(7) == marcacao) && (marcacaoTabuleiro(8) == marcacao)
+				&& (marcacaoTabuleiro(9) == marcacao)) {
 			campeao = true;
 		}
-		if ((marcacaoTabuleiro(1) == marcacao) && (marcacaoTabuleiro(5) == marcacao) && (marcacaoTabuleiro(9) == marcacao)) {
+		if ((marcacaoTabuleiro(1) == marcacao) && (marcacaoTabuleiro(5) == marcacao)
+				&& (marcacaoTabuleiro(9) == marcacao)) {
 			campeao = true;
 		}
-		if ((marcacaoTabuleiro(3) == marcacao) && (marcacaoTabuleiro(5) == marcacao) && (marcacaoTabuleiro(7) == marcacao)) {
+		if ((marcacaoTabuleiro(3) == marcacao) && (marcacaoTabuleiro(5) == marcacao)
+				&& (marcacaoTabuleiro(7) == marcacao)) {
 			campeao = true;
 		}
-		if ((marcacaoTabuleiro(1) == marcacao) && (marcacaoTabuleiro(4) == marcacao) && (marcacaoTabuleiro(7) == marcacao)) {
+		if ((marcacaoTabuleiro(1) == marcacao) && (marcacaoTabuleiro(4) == marcacao)
+				&& (marcacaoTabuleiro(7) == marcacao)) {
 			campeao = true;
 		}
-		if ((marcacaoTabuleiro(2) == marcacao) && (marcacaoTabuleiro(5) == marcacao) && (marcacaoTabuleiro(8) == marcacao)) {
+		if ((marcacaoTabuleiro(2) == marcacao) && (marcacaoTabuleiro(5) == marcacao)
+				&& (marcacaoTabuleiro(8) == marcacao)) {
 			campeao = true;
 		}
-		if ((marcacaoTabuleiro(3) == marcacao) && (marcacaoTabuleiro(6) == marcacao) && (marcacaoTabuleiro(9) == marcacao)) {
+		if ((marcacaoTabuleiro(3) == marcacao) && (marcacaoTabuleiro(6) == marcacao)
+				&& (marcacaoTabuleiro(9) == marcacao)) {
 			campeao = true;
 		}
 		return campeao;
@@ -131,6 +145,10 @@ public class JogoDaVelha {
 			return false;
 
 		}
+	}
+	
+	void selecionarJogada(String jogadorNome) {
+		System.out.println(jogadorNome + " faça sua jogada.");
 	}
 
 }
