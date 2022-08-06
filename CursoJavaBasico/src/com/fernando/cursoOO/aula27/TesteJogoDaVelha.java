@@ -26,23 +26,23 @@ public class TesteJogoDaVelha {
 
 					if (jogadaDaVez % 2 == 0) {
 						jogadorNome = "Jogador1";
-						tabuleiro.selecionarJogada(jogadorNome);
+						tabuleiro.fazerJogada(jogadorNome);
 						posicao = scan.nextInt();
 
-						if (!tabuleiro.validarMarcacaoTabuleiro(posicao, "O")) {
+						if (!tabuleiro.marcacaoIsVazia(posicao, "X")) {
 							jogadaDaVez--;
 						}
 
 					} else {
 						jogadorNome = "Jogador2";
-						tabuleiro.selecionarJogada(jogadorNome);
+						tabuleiro.fazerJogada(jogadorNome);
 						posicao = scan.nextInt();
-						if (!tabuleiro.validarMarcacaoTabuleiro(posicao, "X")) {
+						if (!tabuleiro.marcacaoIsVazia(posicao, "O")) {
 							jogadaDaVez--;
 						}
 					}
 
-					if (tabuleiro.lancarVencedor("X") || tabuleiro.lancarVencedor("O")) {
+					if (tabuleiro.mostrarVencedor("X") || tabuleiro.mostrarVencedor("O")) {
 						tabuleiro.mostrarTabuleiro();
 						System.out.println(jogadorNome + " é o campeão. Parabéns!!");
 						flagJogadores = true;
