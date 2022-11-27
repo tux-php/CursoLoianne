@@ -6,14 +6,14 @@ public class TesteLampada {
 		Lampada encadescente = new Lampada("Encandescente", "LED", "branca", "Ouro Lux", true);
 
 		encadescente.printDescricao();
-		encadescente.tomada();
+		encadescente.tomadaLigarDesligar();
 
 		System.out.println();
 
 		encadescente.printDescricao();
 		System.out.println();
 
-		encadescente.tomada();
+		encadescente.tomadaLigarDesligar();
 
 		encadescente.printDescricao();
 
