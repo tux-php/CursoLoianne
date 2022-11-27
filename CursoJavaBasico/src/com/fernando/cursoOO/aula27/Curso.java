@@ -24,6 +24,12 @@ public class Curso {
 		
 	}
 	
+	boolean teste(int a, int b) {
+		
+		return a == b;
+		
+	}
+	
 	
 	
 }
