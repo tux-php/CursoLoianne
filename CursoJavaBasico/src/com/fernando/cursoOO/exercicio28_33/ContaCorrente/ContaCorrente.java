@@ -7,8 +7,6 @@ public class ContaCorrente {
 	private double limite;
 	private boolean usoChequeEspecial;
 	private String tpConta;
-	private String msg;
-	private String chequeEspecial = "Cheque Especial";
 	private int contContaEspecial = 0;
 
 	public ContaCorrente(int numero, double saldo, double limite, int contContaEspecial) {
@@ -18,8 +16,7 @@ public class ContaCorrente {
 		this.contContaEspecial = contContaEspecial;
 	}
 
-	public ContaCorrente() {
-	};
+	public ContaCorrente() {};
 
 	public int getNumero() {
 		return numero;
@@ -67,22 +64,6 @@ public class ContaCorrente {
 
 	public void setTpConta(String tpConta) {
 		this.tpConta = tpConta;
-	}
-
-	public String getMsg() {
-		return msg;
-	}
-
-	public void setMsg(String msg) {
-		this.msg = msg;
-	}
-
-	public String getChequeEspecial() {
-		return chequeEspecial;
-	}
-
-	public void setChequeEspecial(String chequeEspecial) {
-		this.chequeEspecial = chequeEspecial;
 	}
 
 	public int getContContaEspecial() {
@@ -159,8 +140,8 @@ public class ContaCorrente {
 	}
 
 	public String consultarChequeEspecial() {
-		setMsg(usoChequeEspecial ? " utilizado" : " não utilizado");
-		return chequeEspecial + getMsg();
+		String msg = usoChequeEspecial ? " utilizado" : " não utilizado";
+		return "Cheque Especial" + msg;
 
 	}
 
@@ -178,7 +159,7 @@ public class ContaCorrente {
 
 	public boolean verificarUtilizacaoLimite(double valor, String resp) {
 		boolean flagLimite = true;
-		
+
 		if (resp.equalsIgnoreCase("S") && !resp.isBlank()) {
 			if (getSaldo() != 0) {
 				usarChequeEspecial(true);
@@ -188,7 +169,7 @@ public class ContaCorrente {
 				System.out.println("Saque R$" + valor + ". Limite R$" + getLimite());
 			}
 		}
-		
+
 		return flagLimite;
 	}
 

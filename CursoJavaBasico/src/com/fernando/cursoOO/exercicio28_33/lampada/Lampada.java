@@ -77,7 +77,7 @@ public class Lampada {
 		return isFlagLigada();
 	}
 
-	public boolean tomada() {
+	public boolean tomadaLigarDesligar() {
 		return flagLigada == true ? desligar() : ligar();
 	}
 
@@ -87,15 +87,12 @@ public class Lampada {
 		System.out.println("Cor: " + getCor());
 		System.out.println("Marca: " + getMarca());
 		System.out.println("Bivolt: " + isBivolt());
-		statusLampada();		
+		System.out.println(statusLampada());		
 	}
 
-	private void statusLampada() {
-		if(isFlagLigada() == true) {
-			System.out.println("Lâmpada encontra-se liagada.");
-		}else {
-			System.out.println("Lâmpada encontra-se desligada.");
-		}
+	private String statusLampada() {
+		String msg = "Lâmpada encontra-se";
+		return isFlagLigada() == true ? msg + " ligada" : msg + " desligada";		
 	}
 
 }
