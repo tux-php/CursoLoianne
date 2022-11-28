@@ -9,8 +9,7 @@ public class ContaCorrente {
 	private String tpConta;
 	private int contContaEspecial = 0;
 
-	public ContaCorrente(int numero, double saldo, double limite, int contContaEspecial) {
-		
+	public ContaCorrente(int numero, double saldo, double limite, int contContaEspecial) {		
 		this.numero = numero;
 		this.saldo = saldo;
 		this.limite = limite;

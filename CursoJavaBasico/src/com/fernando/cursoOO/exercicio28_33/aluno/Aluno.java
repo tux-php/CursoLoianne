@@ -12,7 +12,6 @@ public class Aluno {
 	private ArrayList<String> codDisciplinas = new ArrayList<>();
 	private ArrayList<String> nomeDisciplinas = new ArrayList<>();
 	private Map<String, Double> disciplinaNotas = new HashMap<>();
-	private String msg = "";
 	private double media;
 
 	public Aluno(String nome, String matricula, Curso curso) {
@@ -49,6 +48,7 @@ public class Aluno {
 
 	public ArrayList<String> listarDisciplinaMatriculadas() {
 		ArrayList<String> matriculasAluno = new ArrayList<>();
+
 		for (String disciplinaNome : nomeDisciplinas) {
 			matriculasAluno.add(disciplinaNome);
 		}
@@ -58,6 +58,7 @@ public class Aluno {
 
 	public ArrayList<String> listarCodDisciplinas() {
 		ArrayList<String> codigoDisciplinas = new ArrayList<>();
+
 		for (String codDisciplina : codDisciplinas) {
 			codigoDisciplinas.add(codDisciplina);
 		}
@@ -71,11 +72,14 @@ public class Aluno {
 	}
 
 	public void listarNota() {
+
 		disciplinaNotas.forEach((disc, media) -> {
+			String aprovado = "Aluno(a) aprovado(a) na disciplina " + disc + " com " + media;
+			String reprovado = "Aluno(a) reprovado(a) na disciplina " + disc + " com " + media;
 			if (media >= 7) {
-				System.out.println("Aluno aprovado na disciplina " + disc + " com " + media);
+				System.out.println(aprovado);
 			} else {
-				System.out.println("Aluno reprovado na disciplina " + disc + " com " + media);
+				System.out.println(reprovado);
 			}
 		});
 
