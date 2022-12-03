@@ -9,14 +9,15 @@ public class ContaCorrente {
 	private String tpConta;
 	private int contContaEspecial = 0;
 
-	public ContaCorrente(int numero, double saldo, double limite, int contContaEspecial) {		
+	public ContaCorrente(int numero, double saldo, double limite, int contContaEspecial) {
 		this.numero = numero;
 		this.saldo = saldo;
 		this.limite = limite;
 		this.contContaEspecial = contContaEspecial;
 	}
 
-	public ContaCorrente() {};
+	public ContaCorrente() {
+	};
 
 	public int getNumero() {
 		return numero;
@@ -74,38 +75,34 @@ public class ContaCorrente {
 		this.contContaEspecial = contContaEspecial;
 	}
 
-	public boolean sacar(double valor) {
-		boolean validarSaque = (this.getSaldo() >= valor) && (valor > 0);
-		if (validarSaque) {
+	public boolean sacarSaldo(double valor) {
+		boolean isTemSaldo = (this.getSaldo() >= valor) && (valor > 0);
+		if (isTemSaldo) {
 			this.saldo -= valor;
-			return true;
-		} else {
-			return false;
 		}
-
+		return isTemSaldo;
 	}
 
 	public boolean sacarChequeEspecial(double valor) {
-		if (this.getSaldo() == 0 && valor <= limite) {
+		boolean isTemLimite = this.getSaldo() == 0 && valor <= limite;
+		if (isTemLimite) {
 			limite -= valor;
-			return true;
-		} else {
-			return false;
 		}
-
+		return isTemLimite;
 	}
 
 	public double depositarSaldo(double valor) {
 		if (valor > 0) {
-			return saldo += valor;
+			saldo += valor;
 		}
 		return getSaldo();
 	}
 
-	public void depositarLimite(double valor) {
+	public double depositarLimite(double valor) {
 		if (valor > 0) {
 			limite += valor;
 		}
+		return getLimite();
 	}
 
 	public double depositarEmSaldoELimite(double valor, double valorLimiteInicial) {
@@ -119,10 +116,10 @@ public class ContaCorrente {
 		return valor;
 	}
 
-	public void calcularDesconto(double valor) {
+	public void descontarSaldoOuLimite(double valor) {
 		double descontoLimite = valor - getSaldo();
 		double descontoSaldo = valor - descontoLimite;
-		sacar(descontoSaldo);
+		sacarSaldo(descontoSaldo);
 		sacarChequeEspecial(descontoLimite);
 	}
 
@@ -157,20 +154,19 @@ public class ContaCorrente {
 		return getTpConta();
 	}
 
-	public boolean verificarUtilizacaoLimite(double valor, String resp) {
-		boolean flagLimite = true;
-
+	public boolean utilizarLimite(double valor, String resp) {
+		//Return True continua loop das perguntas
 		if (resp.equalsIgnoreCase("S") && !resp.isBlank()) {
+			usarChequeEspecial(true);
 			if (getSaldo() != 0) {
-				usarChequeEspecial(true);
-				calcularDesconto(valor);
+				descontarSaldoOuLimite(valor);
 			} else {
 				sacarChequeEspecial(valor);
 				System.out.println("Saque R$" + valor + ". Limite R$" + getLimite());
 			}
 		}
 
-		return flagLimite;
+		return true;
 	}
 
 	public void mostrarExtrato() {

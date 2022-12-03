@@ -8,7 +8,7 @@ public class TesteContaCorrente {
 			
 			ContaCorrente contaF = new ContaCorrente(45856, 100.00, 1000.00,  0);
 			contaF.setNumero(22225555);
-			contaF.setSaldo(500.98);
+			contaF.setSaldo(600);
 			contaF.setLimite(2000.00);
 						
 			boolean sair = false;
@@ -34,16 +34,16 @@ public class TesteContaCorrente {
 					System.out.println("Informe o valor do saque.");
 					valor = scan.nextDouble();
 					boolean flagLimite = false;
-					boolean sacandoValor;
+					boolean sacarValorSaldo;
 
 					while (!flagLimite) {
 						if (valor > 0) {
-							sacandoValor = contaF.sacar(valor);
-							if (!sacandoValor) {
+							sacarValorSaldo = contaF.sacarSaldo(valor);
+							if (!sacarValorSaldo) {
 								System.out.println("Saldo Insuficiente. Gostaria de sacar do seu limite de R$"
 										+ contaF.getLimite() + " ? S/N");
 								resp = scan.next();
-								flagLimite = contaF.verificarUtilizacaoLimite(valor, resp);
+								flagLimite = contaF.utilizarLimite(valor, resp);
 							} else {
 								contaF.usarChequeEspecial(false);
 								System.out.println("Operação realizada com sucesso. Retire seu dinheiro.");
