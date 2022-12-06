@@ -3,7 +3,6 @@ package com.fernando.cursoOO.exercicio28_33.aluno;
 public class Curso {
 	private String codCurso;
 	private String nomeCurso;
-	private String[] listaDisciplina;
 	
 	public Curso(String codCurso, String nomeCurso) {
 		this.codCurso = codCurso;

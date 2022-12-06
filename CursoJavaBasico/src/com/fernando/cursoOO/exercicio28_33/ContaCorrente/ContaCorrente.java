@@ -155,7 +155,7 @@ public class ContaCorrente {
 	}
 
 	public boolean utilizarLimite(double valor, String resp) {
-		//Return True continua loop das perguntas
+		//Return True(default) para flagLimite.
 		if (resp.equalsIgnoreCase("S") && !resp.isBlank()) {
 			usarChequeEspecial(true);
 			if (getSaldo() != 0) {

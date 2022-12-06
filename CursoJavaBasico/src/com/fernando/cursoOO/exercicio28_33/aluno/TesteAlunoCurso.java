@@ -11,6 +11,7 @@ public class TesteAlunoCurso {
 		Scanner scan = new Scanner(System.in);
 
 		while (!sair) {
+			
 			System.out.println("Informe o código e nome do Curso");
 			String codCurso = scan.nextLine();
 			String nomeCurso = scan.nextLine();
