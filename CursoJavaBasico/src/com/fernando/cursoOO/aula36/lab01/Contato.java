@@ -17,6 +17,9 @@ public class Contato {
     /**
      * @return the nome
      */
+    
+    public Contato(){}
+    
     public String getNome() {
         return nome;
     }

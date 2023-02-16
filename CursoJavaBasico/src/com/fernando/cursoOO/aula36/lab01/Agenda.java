@@ -5,6 +5,9 @@
  */
 package com.fernando.cursoOO.aula36.lab01;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author fernando
@@ -12,7 +15,7 @@ package com.fernando.cursoOO.aula36.lab01;
 public class Agenda {
 
     private String nome;
-    private Contato[] contatos;
+    public List<Contato> contatos;
 
     /**
      * @return the nome
@@ -31,14 +34,14 @@ public class Agenda {
     /**
      * @return the contatos
      */
-    public Contato[] getContatos() {
+    public List<Contato> getContatos() {
         return contatos;
     }
 
     /**
      * @param contatos the contatos to set
      */
-    public void setContatos(Contato[] contatos) {
+    public void setContatos(List contatos) {
         this.contatos = contatos;
     }
 

@@ -39,26 +39,29 @@ public class TesteAgendaContato {
                         String[] contatoNome = new String[2];
                         String[] contatoTelefone = new String[2];
                         String[] contatoEmail = new String[2];
-                        Contato contato = new Contato();
-                        
-                        for (int i = 1; i < 3; i++)
-                        {
+                        //Contato contato = new Contato();
+                        Contato contato[] = new Contato[2];
 
+                        for (int i = 1; i < contato.length; i++)
+                        {
+                            
                             System.out.println("Digite o nome " + i + " contato:");
                             contatoNome[i] = scan.next();
                             System.out.println("Digite o telefone " + i + " contato:");
                             contatoTelefone[i] = scan.next();
+
                             System.out.println("Digite o email " + i + " contato:");
                             contatoEmail[i] = scan.next();
 
-                            contatos.add(contato.setNome(contatoNome[i]));
-                            contatos.add(contato.setEmail(contatoEmail[i]));
-                            contatos.add(contato.setNome(contatoNome[i]));
+                            contato[i] = new Contato();
+                            
                             contato[i].setNome(contatoNome[i]);
                             contato[i].setTelefone(contatoTelefone[i]);
                             contato[i].setEmail(contatoEmail[i]);
 
-                            contatos[i] = contato[i];
+                            contatos.add(contato[i].getNome());
+                            contatos.add(contato[i].getTelefone());
+                            contatos.add(contato[i].getEmail());
 
                             agenda.setContatos(contatos);
 
@@ -127,11 +130,9 @@ public class TesteAgendaContato {
 //                        String reiniciar = scan.next();
 //
 //                        opcao = reiniciar.equalsIgnoreCase("s") ? false : true;
-                    }
-                }
-                sair = true;
             }
-
         }
+        sair = true;
+    }
 
-    
+}
