@@ -15,7 +15,7 @@ import java.util.List;
 public class Agenda {
 
     private String nome;
-    public List<Contato> contatos;
+    private List<Contato> contatos;
 
     /**
      * @return the nome
@@ -34,7 +34,7 @@ public class Agenda {
     /**
      * @return the contatos
      */
-    public List<Contato> getContatos() {
+    public List getContatos() {
         return contatos;
     }
 
