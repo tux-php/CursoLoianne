@@ -38,11 +38,11 @@ public class TesteAgendaContato {
 
                     if (agenda != null && agenda.getNome() != null)
                     {
-                        String[] contatoNome = new String[4];
-                        String[] contatoTelefone = new String[4];
-                        String[] contatoEmail = new String[4];
+                        String[] contatoNome = new String[5];
+                        String[] contatoTelefone = new String[5];
+                        String[] contatoEmail = new String[5];
                         //Contato contato = new Contato();
-                        Contato contato[] = new Contato[3];
+                        Contato contato[] = new Contato[4];
 
                         for (int i = 1; i < contato.length; i++)
                         {
