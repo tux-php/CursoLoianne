@@ -5,6 +5,7 @@
  */
 package com.fernando.cursoOO.aula36.lab02;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -20,6 +21,15 @@ public class TesteCadastro {
         boolean sair = false;
         Scanner scan = new Scanner(System.in);
         String resp;
+        String[] nome_aluno = new String[6];
+        String[] matricula = new String[6];
+        Double[] notaA = new Double[6];
+        Double[] notaB = new Double[6];
+        Double[] notaC = new Double[6];
+        Double[] notaD = new Double[6];
+        Aluno[] aluno = new Aluno[6];
+        ArrayList<Double> mediaTurma = new ArrayList<>();
+
         while (sair == false)
         {
             System.out.println("Gostaria de iniciar ? s/n");
@@ -33,50 +43,76 @@ public class TesteCadastro {
 
                 Curso curso = new Curso(nome_curso, horario_curso);
 
-                System.out.println("Nome do Professor: ");
+                System.out.println("Nome do Professor(a): ");
                 String nome_prof = scan.next();
-                System.out.println("Departamento do Professor: ");
+                System.out.println("Departamento do Professor(a): ");
                 String dep_prof = scan.next();
-                System.out.println("Email do Professor: ");
+                System.out.println("Email do Professor(a): ");
                 String email_prof = scan.next();
 
                 curso.incluirProfessor(nome_prof, dep_prof, email_prof);
 
-                System.out.println("Nome do Aluno1: ");
-                String nome_aluno = scan.next();
-                System.out.println("Matricula do Aluno1: ");
-                String matricula = scan.next();
-                System.out.println("Nota1 do Aluno1: ");
-                Double nota1 = scan.nextDouble();
-                System.out.println("Nota2 do Aluno1: ");
-                Double nota2 = scan.nextDouble();
-                System.out.println("Nota3 do Aluno1: ");
-                Double nota3 = scan.nextDouble();
-                System.out.println("Nota4 do Aluno1: ");
-                Double nota4 = scan.nextDouble();
+                for (int i = 1; i <= 5; i++)
+                {
+                    System.out.println("Nome do Aluno(a) " + i + " : ");
+                    nome_aluno[i] = scan.next();
+                    System.out.println("Matricula do Aluno(a): " + i + " : ");
+                    matricula[i] = scan.next();
+                    System.out.println("Nota1 do Aluno(a): " + i + " : ");
+                    notaA[i] = scan.nextDouble();
+                    System.out.println("Nota2 do Aluno(a): " + i + " : ");
+                    notaB[i] = scan.nextDouble();
+                    System.out.println("Nota3 do Aluno(a): " + i + " : ");
+                    notaC[i] = scan.nextDouble();
+                    System.out.println("Nota4 do Aluno(a): " + i + " : ");
+                    notaD[i] = scan.nextDouble();
 
-                curso.addAluno(nome_aluno, matricula, nota1, nota2, nota3, nota4);
+                    aluno[i] = new Aluno(nome_aluno[i], matricula[i], notaA[i], notaB[i], notaC[i], notaD[i]);
+
+                    mediaTurma.add(notaA[i]);
+                    mediaTurma.add(notaB[i]);
+                    mediaTurma.add(notaC[i]);
+                    mediaTurma.add(notaD[i]);
+
+                    curso.addAluno(aluno[i]);
+                }
+
+                int somaMediaTurma = 0;
+
+                for (Double soma : mediaTurma)
+                {
+                    somaMediaTurma += soma;
+                }
 
                 System.out.println("Curso: " + curso.getNome());
                 System.out.println("Hoário do curso: " + curso.getHorario());
 
-                System.out.println("Professor: " + curso.getProfessor().getNome());
+                System.out.println("Professor(a): " + curso.getProfessor().getNome());
                 System.out.println("Departamento :" + curso.getProfessor().getDepartamento());
                 System.out.println("E-mail: " + curso.getProfessor().getEmail());
+                System.out.println("-------------------------------------------------");
 
-                for (Aluno aluno : curso.getListaAlunos())
+                for (Aluno alunoItem : curso.getListaAlunos())
                 {
-                    System.out.println("Aluno: " + aluno.getNome());
-                    System.out.println("Matrícula : " + aluno.getMatricula());
-                    System.out.println("Aluno: " + aluno.getNota1());
+                    System.out.println("Aluno(a): " + alunoItem.getNome());
+                    System.out.println("Matrícula : " + alunoItem.getMatricula());
 
-                    System.out.println("Média das notas: " + aluno.getMedia());
-                    System.out.println("Situação: " + aluno.getSituacaoAluno());
+                    System.out.println("Média : " + alunoItem.getMedia());
+                    System.out.println("Situação: " + alunoItem.getSituacaoAluno());
+                    System.out.println("-------------------------------------------------");
                 }
+                System.out.println("Média da Turma: " + somaMediaTurma / 20);
 
             } else
             {
-                System.out.println("saindo...");
+                
+                System.out.println("Gostaria de sair do sistema ? (s/n)");
+                resp = scan.next();
+                if (resp.equalsIgnoreCase("s"))
+                {
+                    System.out.println("saindo...");
+                    sair = true;
+                }
             }
         }
     }

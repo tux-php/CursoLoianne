@@ -18,7 +18,7 @@ public class Curso {
 
     public Professor professor;
     public Aluno aluno;
-    public ArrayList<Aluno> listaAlunos;
+    public ArrayList<Aluno> listaAlunos = new ArrayList();
 
     public Professor getProfessor() {
         return professor;
@@ -32,15 +32,15 @@ public class Curso {
         return aluno;
     }
 
-    public void addAluno(String nome, String matricula, double nota1, double nota2, double nota3, double nota4) {
-        this.listaAlunos = new ArrayList();
-        this.aluno = new Aluno(nome, matricula, nota1, nota2, nota3, nota4);
+    public ArrayList<Aluno> addAluno(Aluno aluno) {
 
         listaAlunos.add(aluno);
+        
+        return listaAlunos;
     }
 
     public ArrayList<Aluno> getListaAlunos() {
-        
+
         return listaAlunos;
     }
 
