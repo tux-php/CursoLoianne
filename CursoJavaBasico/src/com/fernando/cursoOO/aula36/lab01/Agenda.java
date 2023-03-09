@@ -15,7 +15,7 @@ import java.util.List;
 public class Agenda {
 
     private String nome;
-    private List<Contato> contatos;    
+    private ArrayList<Contato> contatos;
 
     /**
      * @return the nome
@@ -34,14 +34,14 @@ public class Agenda {
     /**
      * @return the contatos
      */
-    public List getContatos() {
+    public ArrayList<Contato> getContatos() {
         return contatos;
     }
 
     /**
      * @param contatos the contatos to set
      */
-    public void setContatos(List contatos) {
+    public void setContatos(ArrayList<Contato> contatos) {
         this.contatos = contatos;
     }
 

@@ -6,8 +6,6 @@
 package com.fernando.cursoOO.aula36.lab01;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -34,18 +32,18 @@ public class TesteAgendaContato {
                     System.out.println("Digite o nome da agenda: ");
                     String nomeAgenda = scan.next();
                     agenda.setNome(nomeAgenda);
-                    List contatos = new ArrayList();
+                    ArrayList<Contato> contatos = new ArrayList<Contato>();
 
                     if (agenda != null && agenda.getNome() != null)
                     {
                         String[] contatoNome = new String[5];
                         String[] contatoTelefone = new String[5];
                         String[] contatoEmail = new String[5];
-                        //Contato contato = new Contato();
                         Contato contato[] = new Contato[4];
 
-                        for (int i = 1; i < contato.length; i++)
+                        for (int i = 1; i <= 3; i++)
                         {
+                            contato[i] = new Contato();
 
                             System.out.println("Digite o nome " + i + " contato:");
                             contatoNome[i] = scan.next();
@@ -55,27 +53,26 @@ public class TesteAgendaContato {
                             System.out.println("Digite o email " + i + " contato:");
                             contatoEmail[i] = scan.next();
 
-                            contato[i] = new Contato();
 
                             contato[i].setNome(contatoNome[i]);
                             contato[i].setTelefone(contatoTelefone[i]);
                             contato[i].setEmail(contatoEmail[i]);
 
-                            contatos.add(contato[i].getNome());
-                            contatos.add(contato[i].getTelefone());
-                            contatos.add(contato[i].getEmail());
+                            contatos.add(contato[i]);
+                            
 
                             agenda.setContatos(contatos);
 
                         }
 
-                        //System.out.println("Nome Agenda: " + agenda.getNome());
                         if (agenda != null && agenda.getContatos() != null)
                         {
 
-                            for (Object listaContato : agenda.getContatos())
+                            for (Contato listaContato : agenda.getContatos())
                             {
-                                System.out.println("Contato: " + listaContato);
+                                System.out.println("Contato: " + listaContato.getNome());
+                                System.out.println("E-mail: " + listaContato.getEmail());
+                                System.out.println("Telefone: " + listaContato.getTelefone());
                             }
 
                         }
