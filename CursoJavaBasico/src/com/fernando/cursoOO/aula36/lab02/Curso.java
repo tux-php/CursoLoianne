@@ -17,7 +17,6 @@ public class Curso {
     private String horario;
 
     public Professor professor;
-    public Aluno aluno;
     public ArrayList<Aluno> listaAlunos = new ArrayList();
 
     public Professor getProfessor() {
@@ -28,14 +27,10 @@ public class Curso {
         this.professor = professor;
     }
 
-    public Aluno getAluno() {
-        return aluno;
-    }
-
     public ArrayList<Aluno> addAluno(Aluno aluno) {
 
         listaAlunos.add(aluno);
-        
+
         return listaAlunos;
     }
 

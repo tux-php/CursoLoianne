@@ -49,8 +49,10 @@ public class TesteCadastro {
                 String dep_prof = scan.next();
                 System.out.println("Email do Professor(a): ");
                 String email_prof = scan.next();
-
-                curso.incluirProfessor(nome_prof, dep_prof, email_prof);
+                
+                Professor professor = new Professor(nome_prof, dep_prof, email_prof);
+                
+                curso.setProfessor(professor);
 
                 for (int i = 1; i <= 5; i++)
                 {
