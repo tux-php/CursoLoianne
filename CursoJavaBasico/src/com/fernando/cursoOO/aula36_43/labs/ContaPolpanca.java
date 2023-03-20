@@ -36,6 +36,18 @@ public class ContaPolpanca extends ContaBancaria{
     public void setDiaRendimento(int diaRendimento) {
         this.diaRendimento = diaRendimento;
     }
+    
+    public String toString(){
+        String cliente = "Cliente: " + getNomeCliente();
+        String conta = "Conta Polpanca:  " + getNumConta();
+        String saldo = "Saldo Polpanca s/ tx: " + getSaldo();
+        
+        String imprimir = cliente + "\n";
+        imprimir += conta + "\n";
+        imprimir += saldo + "\n";
+        
+        return imprimir;
+    }
 
     
     

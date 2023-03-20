@@ -11,8 +11,8 @@ package com.fernando.cursoOO.aula36_43.labs;
  */
 public class ContaEspecial extends ContaBancaria {
 
-    private double limite;
-    private double vl_limite;
+    private double limiteR;
+    private static double limiteFixo = 2000;
 
     public ContaEspecial() {
     }
@@ -20,71 +20,80 @@ public class ContaEspecial extends ContaBancaria {
     /**
      * @return the limite
      */
-    public double getLimite() {
-        return limite;
+    public double getLimiteR() {
+        return limiteR;
     }
 
     /**
      * @param limite the limite to set
      */
-    public void setLimite(double limite) {
-        this.limite = limite;
+    public void setLimiteR(double limite) {
+        this.limiteR = limite;
     }
 
     public double sacar(double valor) {
-        double saldoLimite = getSaldo() + getLimite();
-        double retirada = 0;
+        double saldoLimite = getSaldo() + getLimiteR();
 
         if (saldoLimite > 0)
         {
             if (getSaldo() >= 0)
             {
-                
+
                 double valorMinimo = getSaldo() - valor;
-                
-                if(valorMinimo >= 0){
-                    setSaldo(valorMinimo);                    
-                }else{
-                    valorMinimo = getLimite() + getSaldo() - valor;
-                    setSaldo(0);
-                    setLimite(valorMinimo);
-                }
-                
+                sacarSaldoOuLimite(valorMinimo, valor);
+
                 return getSaldo();
-            } 
+            }
         }
         return 0;
     }
-    
-    
-    public double depositar(double valor){
-        //TODO Ajustar Essa Lógica
-        double limiteFaltante = getVl_limite() - getLimite();
-        if(valor >= limiteFaltante){
-            
-            setLimite(valor - limiteFaltante);
-            setSaldo(valor);
-            return getLimite();
-        }
-        if(getVl_limite() == getLimite()){
-            setSaldo(getSaldo() + valor);
-            return getSaldo();
-        }else{
-            return 0;
+
+    private void sacarSaldoOuLimite(double valorMinimo, double valor) {
+        if (valorMinimo >= 0)
+        {
+            setSaldo(valorMinimo);
+        } else
+        {
+            setLimiteR(getLimiteR() + getSaldo() - valor);            
+            setSaldo(0);
         }
     }
 
-    /**
-     * @return the vl_limite
-     */
-    public double getVl_limite() {
-        return vl_limite;
+    public double depositar(double valor) {
+        double limiteFaltante = ContaEspecial.limiteFixo - getLimiteR();
+        double resto = valor - limiteFaltante;
+
+        return limiteFaltante == 0 ? depositarNoSaldo(valor) : depositarNoLimite(limiteFaltante, resto);
+
     }
 
-    /**
-     * @param vl_limite the vl_limite to set
-     */
-    public void setVl_limite(double vl_limite) {
-        this.vl_limite = vl_limite;
+    private double depositarNoLimite(double limiteFaltante, double resto) {
+        setLimiteR(getLimiteR() + limiteFaltante);
+        if (resto != 0)
+        {
+            setSaldo(getSaldo() + resto);
+        }
+        return getLimiteR();
     }
+
+    private double depositarNoSaldo(double valor) {
+        setSaldo(getSaldo() + valor);
+
+        return getSaldo();
+    }
+    
+     public String toString(){
+        String cliente = "Cliente: " + getNomeCliente();
+        String conta = "Conta Polpanca:  " + getNumConta();
+        String saldo = "Saldo Polpanca s/ tx: " + getSaldo();
+        String limite = "Limite: " + getLimiteR();
+        
+        String imprimir = cliente + "\n";
+        imprimir += conta + "\n";
+        imprimir += saldo + "\n";
+        imprimir += limite + "\n";
+        
+        return imprimir;
+    }
+
 }
