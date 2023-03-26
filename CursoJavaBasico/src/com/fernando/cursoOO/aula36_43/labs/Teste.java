@@ -29,8 +29,8 @@ public class Teste {
         polpanca.depositar(1800);
         System.out.println("Saldo Polpanca após deposito: " + polpanca.getSaldo());
 
-        polpanca.setDiaRendimento(10);
-        polpanca.calcularNovoSaldo(0.030);
+        polpanca.setDiaRendimento(30);
+        polpanca.calcularNovoSaldo(0.015);
 
         System.out.println("Dias de Rendimento: " + polpanca.getDiaRendimento() + " dias.");
         System.out.println("Saldo Polpanca c/ tx: " + polpanca.getSaldo());
@@ -53,15 +53,17 @@ public class Teste {
         System.out.println("Saldo Especial após deposito: " + especial.getSaldo());
         System.out.println("Saldo LImite após deposito: " + especial.getLimiteR());
         
-        System.out.println("--------------------------------");        
-        especial.depositar(500);
-        especial.depositar(150);
-        especial.sacar(300);
-        especial.sacar(450);
+        System.out.println("--------------------------------");
         especial.depositar(200);
-        especial.sacar(50);
+        especial.sacar(50);        
         System.out.println("Saldo Especial após deposito: " + especial.getSaldo());
         System.out.println("Saldo LImite após deposito: " + especial.getLimiteR());
+        
+        System.out.println("--------------------------------");
+        especial.sacar(200);        
+        System.out.println("Saldo Especial após deposito: " + especial.getSaldo());
+        System.out.println("Saldo LImite após deposito: " + especial.getLimiteR());
+        
     }
 
 }
