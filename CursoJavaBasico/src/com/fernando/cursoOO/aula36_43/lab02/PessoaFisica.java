@@ -10,16 +10,17 @@ package com.fernando.cursoOO.aula36_43.lab02;
  */
 public class PessoaFisica extends Contribuinte {
 
-    private double salarioBruto;
+    private String cpf;
     private double valorDescontado;
 
     public PessoaFisica() {
     };
     
-    public PessoaFisica(String nome, double salario) {
+    public PessoaFisica(String cpf, String nome, double salario) {
         super();
+        this.cpf = cpf;
         super.setNome(nome);
-        salarioBruto = salario;
+        super.setRendaBruta(salario);
     }
 
     @Override
@@ -42,30 +43,32 @@ public class PessoaFisica extends Contribuinte {
         }
         return valorDescontado;
     }
-
-    /**
-     * @return the salarioBruto
-     */
-    public double getSalarioBruto() {
-        return salarioBruto;
-    }
-
-    /**
-     * @param salarioBruto the salarioBruto to set
-     */
-    public void setSalarioBruto(double salarioBruto) {
-        this.salarioBruto = salarioBruto;
-    }
+    
+    
 
     public String toString() {
-        return imprimir();
+        return super.Imprimir();
+    }
+    
+    
+
+    /**
+     * @return the cpf
+     */
+    public String getCpf() {
+        return cpf;
     }
 
-    public String imprimir() {
-        String imprimir = "Imposto pago pelo contribuinte " + getNome() + " : " + calcularImposto(getSalarioBruto()) + "\n";
-        imprimir += "---------------------------------------------";
+    /**
+     * @param cpf the cpf to set
+     */
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
-        return imprimir;
+    @Override
+    public String getId() {
+        return getCpf();
     }
 
 }

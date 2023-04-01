@@ -9,11 +9,12 @@ package com.fernando.cursoOO.aula36_43.lab02;
  * @author 004349292569
  */
 public abstract class Contribuinte {
+
     private String nome;
-    private double aliquota;
-    private double parcelaAdeduzir;
-    
-    public Contribuinte(){}
+    private double rendaBruta;
+
+    public Contribuinte() {
+    }
 
     /**
      * @return the nome
@@ -28,37 +29,31 @@ public abstract class Contribuinte {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
     public abstract double calcularImposto(double renda);
 
     /**
-     * @return the aliquota
+     * @return the rendaBruta
      */
-    public double getAliquota() {
-        return aliquota;
+    public double getRendaBruta() {
+        return rendaBruta;
     }
 
     /**
-     * @param aliquota the aliquota to set
+     * @param rendaBruta the rendaBruta to set
      */
-    public void setAliquota(double aliquota) {
-        this.aliquota = aliquota;
+    public void setRendaBruta(double rendaBruta) {
+        this.rendaBruta = rendaBruta;
+    }
+    
+
+    public String Imprimir() {
+        String imprimir = "Contribuinte(" + getId() + "): " + getNome() + " - Renda Bruta: " + getRendaBruta() + " Imposto Pago: " + calcularImposto(getRendaBruta()) + "\n";
+        imprimir += "---------------------------------------------";
+
+        return imprimir;
     }
 
-    /**
-     * @return the parcelaAdeduzir
-     */
-    public double getParcelaAdeduzir() {
-        return parcelaAdeduzir;
-    }
+    public abstract String getId();
 
-    /**
-     * @param parcelaAdeduzir the parcelaAdeduzir to set
-     */
-    public void setParcelaAdeduzir(double parcelaAdeduzir) {
-        this.parcelaAdeduzir = parcelaAdeduzir;
-    }
-    
-    
-    
 }

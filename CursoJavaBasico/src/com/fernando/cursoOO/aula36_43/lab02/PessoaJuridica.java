@@ -8,17 +8,18 @@ package com.fernando.cursoOO.aula36_43.lab02;
  *
  * @author 004349292569
  */
-public class PessoaJuridica extends Contribuinte{
-    private double rendaBruta;
+public class PessoaJuridica extends Contribuinte{    
     private static double percentual = 0.1;
     private double valorDescontado;
+    private String cnpj;
     
     public PessoaJuridica(){}
     
-    public PessoaJuridica(String nome, double renda){
+    public PessoaJuridica(String cnpj, String nome, double renda){
         super();
+        this.cnpj = cnpj;
         super.setNome(nome);
-        rendaBruta = renda;
+        super.setRendaBruta(renda);
     }
 
     @Override
@@ -29,30 +30,26 @@ public class PessoaJuridica extends Contribuinte{
     }
     
     public String toString() {
-        return imprimir();
-    }
-
-    public String imprimir() {
-        String imprimir = "Imposto pago pelo contribuinte " + getNome() + " : " + calcularImposto(getRendaBruta()) + "\n";
-        imprimir += "---------------------------------------------";
-
-        return imprimir;
+        return super.Imprimir();
     }
 
     /**
-     * @return the rendaBruta
+     * @return the cnpj
      */
-    public double getRendaBruta() {
-        return rendaBruta;
+    public String getCnpj() {
+        return cnpj;
     }
 
     /**
-     * @param rendaBruta the rendaBruta to set
+     * @param cnpj the cnpj to set
      */
-    public void setRendaBruta(double rendaBruta) {
-        this.rendaBruta = rendaBruta;
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
-    
-    
+
+    @Override
+    public String getId() {
+        return getCnpj();
+    }
     
 }

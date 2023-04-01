@@ -10,23 +10,22 @@ package com.fernando.cursoOO.aula36_43.lab02;
  */
 public class Teste {
     public static void main(String[] args) {
-        PessoaFisica fernando = new PessoaFisica("Fernando Ubiratan", 1352.65);
-        PessoaFisica eliene = new PessoaFisica("Eliene Melo",1400.01);
-        PessoaFisica tina = new PessoaFisica("Cristina",2100.01);
-        PessoaFisica ale1 = new PessoaFisica("Antonio",2800.01);
-        PessoaFisica ale2 = new PessoaFisica("Joao",3600.01);
+        PessoaFisica fernando = new PessoaFisica("871.091.529-01","Fernando Ubiratan", 1000);
+        PessoaFisica eliene = new PessoaFisica("544.225.906-34","Eliene Melo",2000);
+        PessoaFisica tina = new PessoaFisica("421.451.372-03","Cristina",3700);
+        PessoaFisica ale1 = new PessoaFisica("163.875.536-10","Antonio",2800.01);
+        PessoaFisica ale2 = new PessoaFisica("678.883.166-11","Joao",3600.01);
         
-        PessoaJuridica bm = new PessoaJuridica("Baia Melo LTDA", 22545.65);
-        PessoaJuridica sc = new PessoaJuridica("SexyCupido LTDA", 30900.95);
-        PessoaJuridica cl = new PessoaJuridica("Cocadora Macapá LTDA", 45580.05);
-        
+        PessoaJuridica bm = new PessoaJuridica("49.315.293/0001-95","Baia Melo LTDA", 5000);
+        PessoaJuridica sc = new PessoaJuridica("42.873.500/0001-88","SexyCupido LTDA", 3000);
+        PessoaJuridica cl = new PessoaJuridica("71.337.344/0001-39","Cocadora Macapá LTDA", 4000);
         
         System.out.println(fernando);
         System.out.println(eliene);
         System.out.println(tina);
         System.out.println(ale1);
         System.out.println(ale2);
-        
+
         System.err.println(bm);
         System.err.println(sc);
         System.err.println(cl);
