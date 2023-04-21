@@ -4,6 +4,7 @@
  */
 package com.br.fernando.aula47_52.labs;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -20,11 +21,12 @@ public class Teste {
         Scanner scan = new Scanner(System.in);
         String resp;
         String respOpcao;
-        
+        int tamanhoAgenda = 0;
+
         Agenda agenda = new Agenda();
-                    Contato contatoAgenda;
-                    String nome;
-                    String telefone;
+        Contato contatoAgenda;
+        String nome;
+        String telefone;
         while (flag == false)
         {
             System.out.println("Gostaria de iniciar ? (s/n)");
@@ -32,66 +34,76 @@ public class Teste {
             if (resp.equalsIgnoreCase("s"))
             {
                 boolean flagOpcao = false;
-                
 
                 while (flagOpcao == false)
                 {
                     System.out.println("Listar opções ? (s/n)");
                     respOpcao = scan.next();
-                    
 
                     if (respOpcao.equalsIgnoreCase("s"))
                     {
+
                         int opcao;
 
-                        System.out.println("Escolha uma opção: ");
-                        System.out.println("(1)- Consultar");
-                        System.out.println("(2)- Cadastrar");
-
-                        opcao = scan.nextInt();
-
-                        if (opcao == 1)
+                        try
                         {
+                            System.out.println("Escolha uma opção: ");
+                            System.out.println("(1)- Consultar");
+                            System.out.println("(2)- Cadastrar");
 
-                            if (!agenda.consultarContato().isEmpty())
+                            opcao = scan.nextInt();
+
+                            if (opcao == 1)
                             {
-                                for (Contato contato : agenda.consultarContato())
+
+                                if (!agenda.listarContato().isEmpty())
                                 {
+                                    System.out.println("Informe o código: ");
+                                    int codigo = scan.nextInt();
+                                    System.out.println(agenda.consultarContato(codigo));
 
-                                    System.out.println("Cod: " + contato.getCod().get(0));
-                                    System.out.println("Nome: " + contato.getNome());
-                                    System.out.println("Tel: " + contato.getTelefone());
-                                    System.out.println("-------------------------------");
-
+                                } else
+                                {
+                                    System.out.println("Agenda encontra-se vazia.");
                                 }
 
-                            } else
+                            }
+                            if (opcao == 2)
                             {
-                                System.out.println("Não há contato cadastrado.");
+
+                                if (tamanhoAgenda <= 2)
+                                {
+                                    System.out.println("Informe o nome.");
+                                    nome = scan.next();
+                                    System.out.println("Informe o telefone.");
+                                    telefone = scan.next();
+
+                                    contatoAgenda = new Contato(nome, telefone);
+                                    agenda.adicionarContato(contatoAgenda);
+
+                                    System.out.println("Cadastro efetuado com sucesso.");
+                                } else
+                                {
+                                    System.out.println("Agenda encontra-se cheia.");
+                                    //throw new AgendaCheiaException();
+                                }
+                                tamanhoAgenda++;
+
                             }
 
-                        }
-                        if (opcao == 2)
+                        } catch (InputMismatchException e)
                         {
-
-                            System.out.println("Informe o nome.");
-                             nome = scan.next();
-                            System.out.println("Informe o telefone.");
-                             telefone = scan.next();
-
-                            contatoAgenda = new Contato(nome, telefone);
-                            agenda.adicionarContato(contatoAgenda);
-
-                            System.out.println("Cadastro efetuado com sucesso.");
-
+                            System.out.println("Houve uma falha na entrada de dados.");
+                            e.getMessage();
                         }
 
+                    } else
+                    {
+
+                        flagOpcao = true;
                     }
-                    
 
                 }
-                
-                flagOpcao = true;
 
             } else
             {
@@ -100,26 +112,5 @@ public class Teste {
             }
         }
 
-//        Contato cont1 = new Contato("Dayanne", "96885566");
-//        Contato cont2 = new Contato("Joao", "115588744");
-//        Contato cont3 = new Contato("Jhon", "6155663322");
-//        Contato cont4 = new Contato("Tina", "65665522");
-//
-//        //System.out.println(cont1.getId());
-//        //System.out.println(cont2.getId());
-//        //System.out.println(cont3.getId());
-//        Agenda ag = new Agenda();
-//        ag.adicionarContato(cont1);
-//        ag.adicionarContato(cont2);
-//        ag.adicionarContato(cont3);
-//        ag.adicionarContato(cont4);
-//
-//        for (Contato agenda : ag.consultarContato()) {
-//            System.out.println("Cod: " + agenda.getCod().get(0));
-//            System.out.println("Nome: " + agenda.getNome());
-//            System.out.println("Tel: " + agenda.getTelefone());
-//            System.out.println("-------------------------------");
-//        }
-//    }
     }
 }

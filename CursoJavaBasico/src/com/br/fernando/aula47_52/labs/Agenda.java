@@ -14,14 +14,56 @@ import java.util.List;
 public class Agenda {
 
     //private Contato contato;
-    private List<Contato> contatos = new ArrayList<>();
+    private List<Contato> contatos = new ArrayList<>(1);
 
-    public void adicionarContato(Contato contato) {        
-        contatos.add(contato);        
+    public void adicionarContato(Contato contato) {
+        try
+        {
+            
+            contatos.add(contato);
+            
+        } catch (Exception e)
+        {
+            System.out.println("Erro de tamanho do array.");
+            e.getMessage();
+        }
     }
-    
-    public List<Contato> consultarContato(){
+
+    public List<Contato> listarContato() {
         return contatos;
+    }
+
+    public String consultarContato(int cod) {
+        String s = "";
+        for (Contato contato : listarContato())
+        {
+            for (Integer codigo : contato.getCod())
+            {
+                try
+                {
+                    if (codigo == cod)
+                    {
+                        s = "Código: " + codigo + "\n";
+                        s += "Nome: " + contato.getNome() + "\n";
+                        s += "Telefone: " + contato.getTelefone() + "\n";
+                        return s;
+
+                    } else
+                    {
+                        throw new ContatoNaoExisteException();
+                    }
+
+                } catch (Exception e)
+                {
+                    System.out.println("Ocorreu um erro: " + e.getMessage());
+                    e.printStackTrace();
+
+                }
+            }
+
+        }
+
+        return s;
     }
 
 }
